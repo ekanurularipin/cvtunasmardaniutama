@@ -10,6 +10,8 @@ import {
   IoMdInformationCircleOutline,
 } from "react-icons/io";
 import avatar from "assets/img/avatars/avatar4.png";
+import { supabase } from "lib/supabase";
+
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
@@ -187,24 +189,16 @@ const Navbar = (props) => {
               <div className="h-px w-full bg-gray-200 dark:bg-white/20 " />
 
               <div className="flex flex-col p-4">
-                {/* <a
-                  href=" "
-                  className="text-sm text-gray-800 dark:text-white hover:dark:text-white"
-                >
-                  Profile Settings
-                </a> */}
-                {/* <a
-                  href=" "
-                  className="mt-3 text-sm text-gray-800 dark:text-white hover:dark:text-white"
-                >
-                  Newsletter Settings
-                </a> */}
-                <a
-                  href=" "
-                  className="mt-3 text-sm font-medium text-red-500 hover:text-red-500 transition duration-150 ease-out hover:ease-in"
-                >
-                  Log Out
-                </a>
+                <button
+                type="button"
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  window.location.href = "https://cvtunasmardaniutama.vercel.app/";
+                }}
+                className="mt-3 text-left text-sm font-medium text-red-500 transition duration-150 ease-out hover:text-red-500"
+              >
+                Log Out
+              </button>
               </div>
             </div>
           }
