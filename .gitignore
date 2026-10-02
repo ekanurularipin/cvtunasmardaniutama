@@ -1,0 +1,15 @@
+# React Admin
+admin/node_modules/
+admin/build/
+
+# Environment / credentials
+.env
+.env.local
+admin/.env
+admin/.env.local
+admin/.env.development.local
+admin/.env.test.local
+admin/.env.production.local
+
+# Logs
+npm-debug.log*
